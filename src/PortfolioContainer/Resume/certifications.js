@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Grid } from '@mui/material';
+import { Grid, Typography, CssBaseline, Container, Card, CardContent } from '@mui/material';
 
 function createData(certification, authority, date) {
   return { certification, authority, date };
@@ -25,7 +25,7 @@ export default function BasicTable() {
   return (
     <Grid>
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Certification</TableCell>

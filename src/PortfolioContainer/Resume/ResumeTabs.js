@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
-import {Box, Card, CardContent, Link, Grid} from "@mui/material";
+import { Box, Card, CardContent, Link, Grid, List, ListItem, ListItemIcon, Icon } from "@mui/material";
 import BasicTables from "./college";
 import BasicTable from "./certifications";
+
+const aboutList = ['Full Stack web and mobile development', 'Interactive Front End as per the design', 
+'React and React Native', 'Redux for state management', 'Building REST API', 'Managing database' ];
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -47,21 +50,16 @@ export default function VerticalTabs() {
   };
 
   return (
+    <Box sx={{width: '100%'}}>
     <Box
       sx={{
         flexGrow: 1,
         bgcolor: "background.paper",
-        display: "flex",
-        height: 450,
+        display: "flex"
       }}
     >
       <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        sx={{ borderRight: 1, borderColor: "divider" }}
+        variant="scrollable" value={value} onChange= {handleChange}
       >
         <Tab label="Training and Work Experience" {...a11yProps(0)} />
         <Tab label="Education" {...a11yProps(1)} />
@@ -71,18 +69,20 @@ export default function VerticalTabs() {
         <Tab label="Projects" {...a11yProps(5)} />
         <Tab label="Languages Known" {...a11yProps(6)} />
       </Tabs>
+      </Box>
       <TabPanel value={value} index={0}>
-      <Grid item md={12} >
-            <Card>
-                <Typography color={'black'} variant='h3'>
-                Training & Work Experience
-                </Typography>
-                <CardContent>
-                    <Typography variant='h6'>
-                    Google Qwiklabs – Hands on training - Create and Manage Cloud Resources (Oct 2020)
-                    </Typography>
-                </CardContent>
-            </Card>
+        <Grid item>
+          <Card>
+            <Typography color={"black"} variant="h3">
+              Training & Work Experience
+            </Typography>
+            <CardContent>
+              <Typography variant="h6">
+                Google Qwiklabs – Hands on training - Create and Manage Cloud
+                Resources (Oct 2020)
+              </Typography>
+            </CardContent>
+          </Card>
         </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -92,7 +92,16 @@ export default function VerticalTabs() {
         <BasicTable />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item Four
+      <List>
+                        {aboutList.map((me) => (
+                        <ListItem key={me}>
+                            <ListItemIcon>
+                                <Icon className="fa fa-circle" sx={{color: 'darkorange'}} />
+                            </ListItemIcon>
+                            <Typography>{me}</Typography>
+                        </ListItem>
+                        ))}
+                    </List>
       </TabPanel>
       <TabPanel value={value} index={4}>
         <Grid>
@@ -119,20 +128,22 @@ export default function VerticalTabs() {
         Item Six
       </TabPanel>
       <TabPanel value={value} index={6}>
-      <Grid>
-            <Card>
-                <Typography bgcolor={'background.paper'} color={'black'} variant='h3'>
-                Languages
-                </Typography>
-                <CardContent>
-                    <Typography variant='h6'>
-                        English (Proficient in spoken and written)
-                    </Typography>
-                    <Typography variant='h6'>
-                        Hindi (Native language)
-                    </Typography>
-                </CardContent>
-            </Card>
+        <Grid>
+          <Card>
+            <Typography
+              bgcolor={"background.paper"}
+              color={"black"}
+              variant="h3"
+            >
+              Languages
+            </Typography>
+            <CardContent>
+              <Typography variant="h6">
+                English (Proficient in spoken and written)
+              </Typography>
+              <Typography variant="h6">Hindi (Native language)</Typography>
+            </CardContent>
+          </Card>
         </Grid>
       </TabPanel>
     </Box>

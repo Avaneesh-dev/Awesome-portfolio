@@ -13,6 +13,7 @@ function createData(certification, authority, date) {
 }
 
 const rows = [
+  createData('PG - Master of Technology (Agricultural Biotechnology) – Indian Institute of Technology, Kharagpur, West Bengal, India', '2022-2024', 'NA'),
   createData('UG - Bachelor of Technology (Biotechnology) – Sardar Vallabhbhai Patel University of Agriculture and Technology, Meerut, Uttar Pradesh, India -250110', '2018-2022', '8.105'),
   createData('INTERMEDIATE - Secondary School Certificate [12th] -Raj English School, Paharia, Varanasi [CBSE Board]', '2017-18', '80.2%' ),
   createData('MATRICULATION -High School Certificate [10th] -St.John’s School, Marhauli, Varanasi [ICSE Board]', '2015-16', '81.67%')
@@ -21,7 +22,7 @@ const rows = [
 export default function BasicTables() {
   return (
     <Grid>
-    <TableContainer component={Paper}>
+    <TableContainer sx={{width: '100%'}}component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
